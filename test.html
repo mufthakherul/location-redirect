@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect Based on Location</title>
+    <script>
+        function redirectBasedOnLocation() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.country_code === 'BD') {
+                        window.location.href = 'https://www.facebook.com';
+                    } else {
+                        window.location.href = 'https://www.youtube.com';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching location data:', error);
+                });
+        }
+    </script>
+</head>
+<body onload="redirectBasedOnLocation()">
+    <h1>Redirecting...</h1>
+</body>
+</html>
